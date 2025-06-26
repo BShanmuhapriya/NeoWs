@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express() //creates an express application
 const port = 5000
+const cors = require('cors')
 
 require('dotenv').config();
+
+app.use(cors());
 
 app.get('/', (req, res) => { //app.get => defines get point
   res.send('Hello World!')

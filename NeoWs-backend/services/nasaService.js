@@ -30,6 +30,23 @@ async function getNeoFeed(startDate, endDate) {
     }
 }
 
+async function getNeoLookup(asteroid_id) {
+    try {
+        const response = await axios.get(API_URL, {
+            params: {
+                asteroid_id,
+                api_Key: API_KEY,
+            },
+        });
+        return response.data;
+    }
+    catch(error) {
+        console.error('Error fetching NeoWs LookUp: ', error.message);
+        throw new Error('Failed to fetch asteroid lookup data from NASA')
+    }
+}
+
 module.exports = {
     getNeoFeed,
+    getNeoLookup,
 }

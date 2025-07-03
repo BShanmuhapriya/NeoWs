@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, IconButton, Typography } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { useRef, type JSX } from "react";
 

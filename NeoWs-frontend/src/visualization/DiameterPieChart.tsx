@@ -42,7 +42,7 @@ const DiameterPieChart: React.FC<Props> = ({ minDiameter, maxDiameter }) => {
               <Cell key={`cell-${index}`} fill={COLORS[index]} />
             ))}
           </Pie>
-          <Tooltip sx={{fontFamily: "'Space Mono', monospace"}}/>
+          <Tooltip contentStyle={{fontFamily: "'Space Mono', monospace"}}/>
           <Legend />
         </PieChart>
       </ResponsiveContainer>

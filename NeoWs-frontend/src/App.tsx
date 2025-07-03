@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import AsteroidLookUp from './pages/AsteroidLookUp';
-import Layout from './components/Layout';
 import AsteroidFeed from './pages/AsteroidFeed';
 import FeedCard from './pages/FeedCard';
 import CompareAsteroids from './pages/CompareAsteroids';

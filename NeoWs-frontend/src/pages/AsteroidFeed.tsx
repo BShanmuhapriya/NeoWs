@@ -61,7 +61,7 @@ const AsteroidFeed: React.FC = () => {
 
                     </Typography>
 
-                    <Typography sx={{ color: 'white', marginBottom: '10px', fontWeight: 'bold', width: '100px', fontFamily: "'Space Mono', monospace" }}>
+                    <Typography sx={{ color: 'white', marginBottom: '10px', fontWeight: 'bold', width: '110px', fontFamily: "'Space Mono', monospace" }}>
                         Start Date:
                     </Typography>
                     <TextField

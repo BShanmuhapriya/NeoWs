@@ -68,7 +68,7 @@ const AsteroidLookUp: React.FC = () => {
       </Typography>
 
       <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, mt: 8 }}>
-        <Box sx={{ml: 8}}>
+        <Box sx={{ ml: 8 }}>
           <Typography variant="h6" sx={{ mb: 4, fontFamily: "'Space Mono', monospace" }}>
             ID: {asteroid.id}
           </Typography>
@@ -89,19 +89,19 @@ const AsteroidLookUp: React.FC = () => {
           <Typography sx={{ mb: 2, fontFamily: "'Space Mono', monospace" }}>
             Max Diameter: {estimated_diameter.kilometers.estimated_diameter_max} km
           </Typography>
-          <Box sx={{ mt: 2, fontFamily: "'Space Mono', monospace" }}>
-            <Typography sx={{ display: "flex", alignItems: "center" }}>
-              Hazard Level:&nbsp;
-              <Chip
-                label={is_potentially_hazardous_asteroid ? "Hazardous" : "Safe"}
-                sx={{
-                  backgroundColor: is_potentially_hazardous_asteroid ? "#ff1744" : "#00e676",
-                  color: "#000",
-                  fontWeight: "bold",
-                  fontFamily: "'Space Mono', monospace"
-                }}
-              />
+          <Box sx={{ mt: 2, fontFamily: "'Space Mono', monospace", display: 'flex', alignItems: 'center' }}>
+            <Typography sx={{ mr: 1 }}>
+              Hazard Level:
             </Typography>
+            <Chip
+              label={is_potentially_hazardous_asteroid ? "Hazardous" : "Safe"}
+              sx={{
+                backgroundColor: is_potentially_hazardous_asteroid ? "#ff1744" : "#00e676",
+                color: "#000",
+                fontWeight: "bold",
+                fontFamily: "'Space Mono', monospace"
+              }}
+            />
           </Box>
         </Box>
 

@@ -1,0 +1,10 @@
+{
+  "name": "neows",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:frontend",
+    "build:frontend": "cd NeoWs-frontend && npm run build",
+    "start:frontend": "cd NeoWs-frontend && npm start",
+    "start:backend": "cd NeoWs-backend && npm start"
+  }
+}

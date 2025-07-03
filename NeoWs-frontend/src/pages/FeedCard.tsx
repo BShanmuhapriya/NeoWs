@@ -64,13 +64,24 @@ const FeedCard: React.FC = () => {
 
   return (
     <>
+      {loading && (
+        <Typography sx={{ color: "white", fontFamily: "'Space Mono', monospace" }}>
+          Loading...
+        </Typography>
+      )}
+
+      {error && (
+        <Typography sx={{ color: "red", fontFamily: "'Space Mono', monospace" }}>
+          {error}
+        </Typography>
+      )}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           px: 4,
-          
+
         }}
       >
         <Typography
@@ -120,8 +131,8 @@ const FeedCard: React.FC = () => {
           gap: 1.5,
         }}
       >
-        <Typography sx={{fontFamily: "'Space Mono', monospace"}}>Start Date: {startDate || "N/A"}</Typography>
-        <Typography sx={{fontFamily: "'Space Mono', monospace"}}>End Date: {endDate || "N/A"}</Typography>
+        <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>Start Date: {startDate || "N/A"}</Typography>
+        <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>End Date: {endDate || "N/A"}</Typography>
         <Link
           href="/"
           underline="hover"
@@ -157,17 +168,17 @@ const FeedCard: React.FC = () => {
                   rowGap: 1.5,
                 }}
               >
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   ID
                 </Typography>
                 <Typography>: {a.id}</Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Name
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>: {a.name}</Typography>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>: {a.name}</Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   NASA JPL URL
                 </Typography>
                 <span>
@@ -175,63 +186,63 @@ const FeedCard: React.FC = () => {
                   <Link
                     href={a.nasa_jpl_url}
                     target="_blank"
-                    sx={{ color: "white",fontFamily: "'Space Mono', monospace" }}
+                    sx={{ color: "white", fontFamily: "'Space Mono', monospace" }}
                   >
                     Link
                   </Link>
                 </span>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Absolute Magnitude
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>: {a.absolute_magnitude_h}</Typography>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>: {a.absolute_magnitude_h}</Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Date of Approach
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.close_approach_data[0]?.close_approach_date}
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Orbiting Body
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.close_approach_data[0]?.orbiting_body}
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Hazardous
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.is_potentially_hazardous_asteroid ? "Yes" : "No"}
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Sentry Object
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.is_sentry_object ? "Yes" : "No"}
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Min Diameter
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.estimated_diameter.kilometers.estimated_diameter_min} km
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Max Diameter
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.estimated_diameter.kilometers.estimated_diameter_max} km
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Speed
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   :
                   {
                     a.close_approach_data[0]?.relative_velocity
@@ -240,10 +251,10 @@ const FeedCard: React.FC = () => {
                   km/h
                 </Typography>
 
-                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography fontWeight="bold" color="rgb(25, 252, 195)" sx={{ fontFamily: "'Space Mono', monospace" }}>
                   Distance to Earth
                 </Typography>
-                <Typography sx={{fontFamily: "'Space Mono', monospace"}}>
+                <Typography sx={{ fontFamily: "'Space Mono', monospace" }}>
                   : {a.close_approach_data[0]?.miss_distance.kilometers} km
                 </Typography>
               </Box>

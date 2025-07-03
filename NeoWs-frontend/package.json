@@ -16,6 +16,8 @@
     "@mui/material": "^7.1.2",
     "@mui/x-charts": "^8.6.0",
     "axios": "^1.10.0",
+    "decimal.js-light": "^2.5.1",
+    "es-toolkit": "^1.39.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",

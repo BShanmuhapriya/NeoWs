@@ -5,4 +5,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: './', 
   plugins: [react()],
+  optimizeDeps: {
+    include: ['es-toolkit/compat/throttle']
+  },
+build: {
+    rollupOptions: {
+      external: ['@mui/icons-material'],
+    },
+  },
 })

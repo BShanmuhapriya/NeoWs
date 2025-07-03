@@ -14,7 +14,7 @@ router.get('/feed', async (req, res) => {
 });
 
 router.get('/lookup/:asteroid_id', async (req, res) => {
-  const { asteroid_id } = req.query;
+  const { asteroid_id } = req.params;
 
   try {
     const data = await getNeoLookup(asteroid_id);

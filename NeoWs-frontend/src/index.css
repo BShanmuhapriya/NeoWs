@@ -24,12 +24,14 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+  background-image: url('/Space Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   min-height: 100vh;
+  font-family: 'Space Mono', monospace;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

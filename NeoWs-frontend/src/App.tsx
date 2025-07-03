@@ -1,21 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import Feed from './pages/Feed'
+import { Route, Routes } from 'react-router-dom';
+import AsteroidLookUp from './pages/AsteroidLookUp';
+import Layout from './components/Layout';
+import AsteroidFeed from './pages/AsteroidFeed';
+import FeedCard from './pages/FeedCard';
+import CompareAsteroids from './pages/CompareAsteroids';
+import { Box } from '@mui/material';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <Box>
       <Routes>
-          <Route path="/" element={<Feed />} />
-          {/* <Route path="/lookup/:id" element={<AsteroidDetail />} /> */}
+        <Route path="/" element={<AsteroidFeed />} />
+        <Route path="/feedCard" element={<FeedCard />} />
+        <Route path="/compareAsteroids" element={<CompareAsteroids />} />
+        <Route path="/lookup/:id" element={<AsteroidLookUp />} />
       </Routes>
-    </>
-  )
+    </Box>
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const API_URL ='https://api.nasa.gov/neo/rest/v1/feed';
+const API_URL = 'https://api.nasa.gov/neo/rest/v1/feed';
 require('dotenv').config();
 
 const API_KEY = process.env.NASA_API_KEY;
@@ -16,15 +16,15 @@ async function getNeoFeed(startDate, endDate) {
     try {
         const response = await axios.get(API_URL, {
             params: {
-                start_Date: startDate,
-                end_Date: endDate,
-                api_Key: API_KEY,
+                start_date: startDate,
+                end_date: endDate,
+                api_key: API_KEY,
             },
         });
 
         return response.data;
     }
-    catch(error) {
+    catch (error) {
         console.error('Error fetching Neows feed: ', error.message);
         throw new Error('Failed to fetch asteroid data from NASA');
     }
@@ -32,15 +32,14 @@ async function getNeoFeed(startDate, endDate) {
 
 async function getNeoLookup(asteroid_id) {
     try {
-        const response = await axios.get(API_URL, {
+        const response = await axios.get(`https://api.nasa.gov/neo/rest/v1/neo/${asteroid_id}`, {
             params: {
-                asteroid_id,
-                api_Key: API_KEY,
-            },
+                api_key: API_KEY,
+            }
         });
         return response.data;
     }
-    catch(error) {
+    catch (error) {
         console.error('Error fetching NeoWs LookUp: ', error.message);
         throw new Error('Failed to fetch asteroid lookup data from NASA')
     }

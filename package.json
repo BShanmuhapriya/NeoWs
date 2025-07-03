@@ -1,10 +1,21 @@
 {
-  "name": "neows",
+  "name": "neows-monorepo",
+  "version": "1.0.0",
+  "description": "NeoWs (Near Earth Object Web Service) - Monorepo with backend and frontend",
   "private": true,
   "scripts": {
-    "build": "npm run build:frontend",
+    "install:backend": "cd NeoWs-backend && npm install",
+    "install:frontend": "cd NeoWs-frontend && npm install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "dev:backend": "cd NeoWs-backend && npm start",
+    "dev:frontend": "cd NeoWs-frontend && npm run dev",
     "build:frontend": "cd NeoWs-frontend && npm run build",
-    "start:frontend": "cd NeoWs-frontend && npm start",
-    "start:backend": "cd NeoWs-backend && npm start"
-  }
+    "build": "npm run build:frontend",
+    "start": "npm run dev:backend",
+    "test:frontend": "cd NeoWs-frontend && npm run test",
+    "lint:frontend": "cd NeoWs-frontend && npm run lint"
+  },
+  "keywords": ["asteroid", "nasa", "neows", "space"],
+  "author": "",
+  "license": "ISC"
 }

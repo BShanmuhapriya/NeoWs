@@ -11,8 +11,33 @@ import { useLocation, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import AsteroidScroll from "./AsteroidScroll";
 
+interface Asteroid {
+  id: string;
+  name: string;
+  nasa_jpl_url: string;
+  absolute_magnitude_h: number;
+  is_potentially_hazardous_asteroid: boolean;
+  is_sentry_object: boolean;
+  estimated_diameter: {
+    kilometers: {
+      estimated_diameter_min: number;
+      estimated_diameter_max: number;
+    };
+  };
+  close_approach_data: {
+    close_approach_date: string;
+    orbiting_body: string;
+    relative_velocity: {
+      kilometers_per_hour: string;
+    };
+    miss_distance: {
+      kilometers: string;
+    };
+  }[];
+}
+
 const FeedCard: React.FC = () => {
-  const [asteroids, setAsteroids] = useState<any[]>([]);
+  const [asteroids, setAsteroids] = useState<Asteroid[]>([]);
   const [addedAsteroids, setAddedAsteroids] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -34,7 +59,7 @@ const FeedCard: React.FC = () => {
           params: { start_date: startDate, end_date: endDate },
         });
         const raw = res.data.near_earth_objects;
-        const flatList = Object.values(raw).flat();
+        const flatList = Object.values(raw).flat() as Asteroid[];
         setAsteroids(flatList);
       } catch {
         setError("Failed to fetch data.");

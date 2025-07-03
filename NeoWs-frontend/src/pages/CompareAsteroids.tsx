@@ -156,8 +156,9 @@ const CompareAsteroids = () => {
                             </Typography>
                             {asteroids.map((asteroid: Asteroid, idx: number) => {
                                 const keys = field.key.split(".");
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                 let value: any = asteroid;
-                                for (let k of keys) {
+                                for (const k of keys) {
                                     const indexMatch = k.match(/\[(\d+)\]/);
                                     if (indexMatch) {
                                         const arrayKey = k.split("[")[0];

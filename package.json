@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "NeoWs (Near Earth Object Web Service) - Monorepo with backend and frontend",
   "private": true,
+  "workspaces": [
+    "NeoWs-frontend",
+    "NeoWs-backend"
+  ],
   "scripts": {
     "install:backend": "cd NeoWs-backend && npm install",
     "install:frontend": "cd NeoWs-frontend && npm install",
@@ -10,12 +14,21 @@
     "dev:backend": "cd NeoWs-backend && npm start",
     "dev:frontend": "cd NeoWs-frontend && npm run dev",
     "build:frontend": "cd NeoWs-frontend && npm run build",
-    "build": "npm run build:frontend",
+    "build": "npm run build --workspaces",
+    "dev": "concurrently \"npm run dev --workspace=NeoWs-backend\" \"npm run dev --workspace=NeoWs-frontend\"",
     "start": "npm run dev:backend",
     "test:frontend": "cd NeoWs-frontend && npm run test",
     "lint:frontend": "cd NeoWs-frontend && npm run lint"
   },
-  "keywords": ["asteroid", "nasa", "neows", "space"],
+  "keywords": [
+    "asteroid",
+    "nasa",
+    "neows",
+    "space"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
 }

@@ -1,5 +1,5 @@
 # === BUILD FRONTEND ===
-FROM node:18 AS frontend
+FROM node:18.19.1 AS frontend
 
 WORKDIR /app/frontend
 COPY NeoWs-frontend/ ./

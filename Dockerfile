@@ -2,7 +2,7 @@
 FROM node:18 AS frontend
 
 WORKDIR /app/frontend
-COPY Neows-frontend/ ./
+COPY NeoWs-frontend/ ./
 RUN npm install
 RUN npm run build
 
@@ -10,7 +10,7 @@ RUN npm run build
 FROM node:18 AS backend
 
 WORKDIR /app
-COPY Neows-backend/ ./
+COPY NeoWs-backend/ ./
 COPY --from=frontend /app/frontend/dist ./public
 RUN npm install
 

@@ -1,4 +1,4 @@
-# === BUILD FRONTEND ===
+# === Build frontend ===
 FROM node:18.19.1 AS frontend
 
 WORKDIR /app/frontend
@@ -6,7 +6,7 @@ COPY NeoWs-frontend/ ./
 RUN npm install
 RUN npm run build
 
-# === BUILD BACKEND ===
+# === Build backend ===
 FROM node:18.19.1 AS backend
 
 WORKDIR /app

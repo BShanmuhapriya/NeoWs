@@ -1,17 +1,15 @@
-# === BUILD FRONTEND ===
-FROM node:18.19.1 AS frontend
+FROM node:18.19.1
 
+# Build frontend
 WORKDIR /app/frontend
 COPY NeoWs-frontend/ ./
 RUN npm install
 RUN npm run build
 
-# === BUILD BACKEND ===
-FROM node:18 AS backend
-
+# Build backend
 WORKDIR /app
 COPY NeoWs-backend/ ./
-COPY --from=frontend /app/frontend/dist ./public
+COPY --from=0 /app/frontend/dist ./public
 RUN npm install
 
 EXPOSE 3000
